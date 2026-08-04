@@ -18,11 +18,23 @@
 .lab-canvas {
   min-height: 520px;
   padding: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-large);
 }
 
 .card {
+  width: 100%;
+  max-width: 440px;
   padding: 24px;
+
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-card);
 }

@@ -12,8 +12,7 @@ function App() {
           <h1>Laboratorio de componentes de Cafetal</h1>
 
           <p>
-            Espacio de practica para consruir interfaces profesionales
-            con React y CSS
+            Espacio de práctica para construir interfaces profesionales
           </p>
         </div>
         <span className='lab-status'>
@@ -40,8 +39,7 @@ function App() {
             <h3>Arroz con leche</h3>
 
             <p>
-              Aqui se construira la primera vista profesional completamente
-              a mano
+              Aquí se construirá la primera vista profesional completamente a mano.
             </p>
             <button type='button'>
               Guardar precio
