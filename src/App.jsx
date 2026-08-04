@@ -45,6 +45,31 @@ function App() {
               <p>
                 Aquí se construirá la primera vista profesional completamente a mano.
               </p>
+
+              <div className='form-field'>
+                <label htmlFor="exclusive-price">
+                  Nuevo precio unitario
+                </label>
+
+                <div className='price-input'>
+                  <span aria-hidden="true">$</span>
+
+                  <input
+                    id='exlusive-price'
+                    type='number'
+                    min='0'
+                    step='1'
+                    placeholder='0'
+                  />
+
+                  <p className='field-help'>
+                    Este valor se aplicara unicamente a este cliente.
+                  </p>
+
+                </div>
+
+              </div>
+
             </div>
             <div className='card-actions'>
               <button className='secondary-button' type='button'>
