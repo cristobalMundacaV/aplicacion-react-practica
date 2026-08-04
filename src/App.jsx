@@ -61,13 +61,10 @@ function App() {
                     step='1'
                     placeholder='0'
                   />
-
-                  <p className='field-help'>
-                    Este valor se aplicara unicamente a este cliente.
-                  </p>
-
                 </div>
-
+                <p className='field-help'>
+                  Este valor se aplicara unicamente a este cliente.
+                </p>
               </div>
 
             </div>
