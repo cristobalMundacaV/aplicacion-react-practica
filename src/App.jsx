@@ -37,11 +37,13 @@ function App() {
               Precio exclusivo
             </span>
 
-            <h3>Arroz con leche</h3>
+            <div className='card-content'>
+              <h3>Arroz con Leche</h3>
 
-            <p>
-              Aquí se construirá la primera vista profesional completamente a mano.
-            </p>
+              <p>
+                Aquí se construirá la primera vista profesional completamente a mano.
+              </p>
+            </div>
             <button className='primary-button' type='button'>
               <Save size={17} />
               Guardar precio
