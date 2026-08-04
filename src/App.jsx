@@ -73,24 +73,22 @@ function App() {
                     }
                   />
                 </div>
+                {hasPriceError ? (
+                  <p
+                    id='exclusive-price-error'
+                    className='field-error'
+                  >
+                    Ingresa un precio superior a $0.
+                  </p>
+                ) : (
+                  <p
+                    id='exclusive-price-help'
+                    className='field-help'
+                  >
+                    Este valor se aplicará únicamente a este cliente.
+                  </p>
+                )}
               </div>
-              {hasPriceError ? (
-                <p
-                  id='exclusive-price-error'
-                  className='field-error'
-                >
-                  Ingresa un precio superior a $0.
-                </p>
-              ) : (
-                <p
-                  id='exclusive-price-help'
-                  className='field-help'
-                >
-                  Este valor se aplicará únicamente a este cliente.
-                </p>
-              )}
-
-
             </div>
             <div className='card-actions'>
               <button className='secondary-button' type='button'>
