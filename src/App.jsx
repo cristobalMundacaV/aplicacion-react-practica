@@ -2,17 +2,52 @@ import './App.css'
 
 function App() {
   return (
-    <main className='app'>
-      <section className='card'>
-        <span className='badge'>Precio exclusivo</span>
+    <main className='component-lab'>
+      <header className='lab-header'>
+        <div>
+          <span className='lab-eyebrow'>
+            Mundaca's Solutions
+          </span>
 
-        <h1>Arroz con leche</h1>
+          <h1>Laboratorio de componentes de Cafetal</h1>
 
-        <p>Aqui se construira la primera vista a mano de la historia wn</p>
+          <p>
+            Espacio de practica para consruir interfaces profesionales
+            con React y CSS
+          </p>
+        </div>
+        <span className='lab-status'>
+          Fase 1
+        </span>
+      </header>
 
-        <button type='button'>
-          Guardar precio
-        </button>
+      <section className='lab-section'>
+        <div className='lab-section-heading'>
+          <span>Fundamentos Visuales</span>
+          <h2>Tarjeta de precio exclusivo</h2>
+          <p>
+            Construiremos este componente desde su geometria hasta sus
+            estados interactivos
+          </p>
+        </div>
+
+        <div className='lab-canvas'>
+          <section className='card'>
+            <span className='badge'>
+              Precio exclusivo
+            </span>
+
+            <h3>Arroz con leche</h3>
+
+            <p>
+              Aqui se construira la primera vista profesional completamente
+              a mano
+            </p>
+            <button type='button'>
+              Guardar precio
+            </button>
+          </section>
+        </div>
       </section>
     </main>
   )

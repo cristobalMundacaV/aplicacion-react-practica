@@ -1,6 +1,26 @@
-.app {
+.component-lab {
   min-height: 100vh;
-  padding: 40px;
+  padding: 48px;
+}
+
+.lab-header {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto 48px;
+}
+
+.lab-section {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.lab-canvas {
+  min-height: 520px;
+  padding: 48px;
+  background: var(--color-surface);
+  border: 1px solida var(--color-border);
+  border-radius: var(--radius-large);
 }
 
 .card {

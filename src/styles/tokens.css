@@ -1,0 +1,18 @@
+:root {
+    --color-primary: #f97316;
+    --color-primary-hover: #ea580c;
+    --color-primary-soft: #fff7ed;
+
+    --color-background: #f4f6f8;
+    --color-surface: #ffffff;
+    --color-border: #e2e8f0;
+
+    --color-text: #172033;
+    --color-text-muted: #64748b;
+
+    --radius-small: 8px;
+    --radius-medium: 14px;
+    --radius-large: 20px;
+
+    --shadow-card: 0 20px 45px rgba(15, 23, 42, 0.12);
+}
