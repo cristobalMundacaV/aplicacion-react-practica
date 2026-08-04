@@ -1,7 +1,10 @@
+import { useState } from 'react'
 import './App.css'
 import { Save, Wallet } from 'lucide-react'
 
 function App() {
+  const [price, setPrice] = useState('')
+  const hasPriceError = price !== '' && Number(price) <= 0
   return (
     <main className='component-lab'>
       <header className='lab-header'>
@@ -46,7 +49,7 @@ function App() {
                 Aquí se construirá la primera vista profesional completamente a mano.
               </p>
 
-              <div className='form-field'>
+              <div className={`form-field ${hasPriceError ? 'has-error' : ''}`}>
                 <label htmlFor="exclusive-price">
                   Nuevo precio unitario
                 </label>
@@ -60,12 +63,33 @@ function App() {
                     min='0'
                     step='1'
                     placeholder='0'
+                    value={price}
+                    onChange={(event) => setPrice(event.target.value)}
+                    aria-invalid={hasPriceError}
+                    aria-describedby={
+                      hasPriceError
+                        ? 'exclusive-price-error'
+                        : 'exclusive-price-help'
+                    }
                   />
                 </div>
-                <p className='field-help'>
-                  Este valor se aplicara unicamente a este cliente.
-                </p>
               </div>
+              {hasPriceError ? (
+                <p
+                  id='exclusive-price-error'
+                  className='field-error'
+                >
+                  Ingresa un precio superior a $0.
+                </p>
+              ) : (
+                <p
+                  id='exclusive-price-help'
+                  className='field-help'
+                >
+                  Este valor se aplicará únicamente a este cliente.
+                </p>
+              )}
+
 
             </div>
             <div className='card-actions'>

@@ -15,6 +15,11 @@
     --color-text: #172033;
     --color-text-muted: #64748b;
 
+    --color-danger: #dc2626;
+    --color-danger-hover: #b91c1c;
+    --color-danger-soft: #fef2f2;
+    --color-danger-border: #fecaca;
+
     --radius-small: 8px;
     --radius-medium: 14px;
     --radius-large: 20px;
