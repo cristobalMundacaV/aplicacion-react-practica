@@ -44,10 +44,16 @@ function App() {
                 Aquí se construirá la primera vista profesional completamente a mano.
               </p>
             </div>
-            <button className='primary-button' type='button'>
-              <Save size={17} />
-              Guardar precio
-            </button>
+            <div className='card-actions'>
+              <button className='secondary-button' type='button'>
+                Cancelar
+              </button>
+
+              <button className='primary-button' type='button'>
+                <Save size={17} />
+                Guardar precio
+              </button>
+            </div>
           </section>
         </div>
       </section>

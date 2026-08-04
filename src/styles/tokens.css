@@ -3,6 +3,12 @@
     --color-primary-hover: #ea580c;
     --color-primary-soft: #fff7ed;
 
+    --color-secondary: #f3f4f6;
+    --color-secondary-hover: #e5e7eb;
+    --color-secondary-soft: #fff7ed;
+
+    --color-secondary-border: #e5e7eb;
+
     --color-background: #f4f6f8;
     --color-surface: #ffffff;
     --color-border: #e2e8f0;
