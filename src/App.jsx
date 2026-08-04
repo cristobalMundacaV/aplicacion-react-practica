@@ -1,4 +1,5 @@
 import './App.css'
+import { Save } from 'lucide-react'
 
 function App() {
   return (
@@ -41,7 +42,8 @@ function App() {
             <p>
               Aquí se construirá la primera vista profesional completamente a mano.
             </p>
-            <button type='button'>
+            <button className='primary-button' type='button'>
+              <Save size={17} />
               Guardar precio
             </button>
           </section>
