@@ -1,5 +1,5 @@
 import './App.css'
-import { Save } from 'lucide-react'
+import { Save, Wallet } from 'lucide-react'
 
 function App() {
   return (
@@ -33,7 +33,9 @@ function App() {
 
         <div className='lab-canvas'>
           <section className='card'>
+
             <span className='badge'>
+              <Wallet size={17} />
               Precio exclusivo
             </span>
 
