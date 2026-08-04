@@ -4,7 +4,18 @@ import { Save, Wallet } from 'lucide-react'
 
 function App() {
   const [price, setPrice] = useState('')
-  const hasPriceError = price !== '' && Number(price) <= 0
+  const [priceTouched, setPriceTouched] = useState(false)
+  const isPriceInvalid = price === '' || Number(price) <= 0
+  const showPriceError = priceTouched && isPriceInvalid
+  const handleSave = () => {
+    setPriceTouched(true)
+
+    if (isPriceInvalid) {
+      return
+    }
+    console.log('Precio válido:', price)
+  }
+
   return (
     <main className='component-lab'>
       <header className='lab-header'>
@@ -49,7 +60,7 @@ function App() {
                 Aquí se construirá la primera vista profesional completamente a mano.
               </p>
 
-              <div className={`form-field ${hasPriceError ? 'has-error' : ''}`}>
+              <div className={`form-field ${showPriceError ? 'has-error' : ''}`}>
                 <label htmlFor="exclusive-price">
                   Nuevo precio unitario
                 </label>
@@ -65,15 +76,16 @@ function App() {
                     placeholder='0'
                     value={price}
                     onChange={(event) => setPrice(event.target.value)}
-                    aria-invalid={hasPriceError}
+                    aria-invalid={showPriceError}
                     aria-describedby={
-                      hasPriceError
+                      showPriceError
                         ? 'exclusive-price-error'
                         : 'exclusive-price-help'
                     }
+                    onBlur={() => setPriceTouched(true)}
                   />
                 </div>
-                {hasPriceError ? (
+                {showPriceError ? (
                   <p
                     id='exclusive-price-error'
                     className='field-error'
@@ -95,7 +107,7 @@ function App() {
                 Cancelar
               </button>
 
-              <button className='primary-button' type='button'>
+              <button className='primary-button' type='button' onClick={handleSave}>
                 <Save size={17} />
                 Guardar precio
               </button>
