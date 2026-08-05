@@ -363,3 +363,47 @@
   font-size: 13px;
   line-height: 1.4;
 }
+
+.error-feedback {
+  color: var(--color-secondary);
+  background: var(--color-danger);
+  border-color: var(--color-danger-soft)
+}
+
+.feedback-action {
+  align-self: flex-start;
+
+  padding: 0;
+
+  background: transparent;
+  border: 0;
+
+  color: inherit;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  cursor: pinter;
+}
+
+.feedback-action:hover {
+  text-decoration-thickness: 2px;
+}
+
+.feedback-actions:focus-visible {
+  outline: 3px solid rgba(220, 38, 38, 0.18);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.price-input:has(input:disabled) {
+  background: #f8fafc;
+  opacity: 0.75;
+  cursor: wait;
+}
+
+.price-input input:disabled {
+  cursor: wait;
+}

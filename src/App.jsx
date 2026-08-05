@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { Save, Wallet, LoaderCircle, CircleCheck } from 'lucide-react'
+import { Save, Wallet, LoaderCircle, CircleCheck, CircleAlert } from 'lucide-react'
 
 function App() {
   const [price, setPrice] = useState('')
@@ -31,6 +31,13 @@ function App() {
     await new Promise((resolve) => {
       setTimeout(resolve, 1200)
     })
+
+    const shouldFail = Number(price) === 999
+
+    if (shouldFail) {
+      setSaveStatus('error')
+      return
+    }
 
     setSaveStatus('success')
 
@@ -103,6 +110,7 @@ function App() {
                     placeholder='0'
                     value={price}
                     onChange={handlePriceChange}
+                    disabled={isSaving}
                     aria-invalid={showPriceError}
                     aria-describedby={
                       showPriceError
@@ -172,6 +180,29 @@ function App() {
                   <p>
                     El nuevo precio exclusivo es ${price}
                   </p>
+                </div>
+              </div>
+            )}
+            {saveFailed && (
+              <div
+                className='save-feedback error-feedback'
+                role="alert"
+              >
+                <CircleAlert size={18} />
+                <div className='feedback-content'>
+                  <strong>No pudimos guardar el precio</strong>
+
+                  <p>
+                    Ocurrio un problema durante el guardado. Inténtalo nuevamente.
+                  </p>
+
+                  <button
+                    className='feedback-action'
+                    type='button'
+                    onClick={handleSave}
+                  >
+                    Reintentar
+                  </button>
                 </div>
               </div>
             )}
