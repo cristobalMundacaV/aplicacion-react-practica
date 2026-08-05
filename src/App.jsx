@@ -193,7 +193,7 @@ function App() {
                   <strong>No pudimos guardar el precio</strong>
 
                   <p>
-                    Ocurrio un problema durante el guardado. Inténtalo nuevamente.
+                    Ocurrió un problema durante el guardado. Inténtalo nuevamente.
                   </p>
 
                   <button

@@ -365,9 +365,9 @@
 }
 
 .error-feedback {
-  color: var(--color-secondary);
-  background: var(--color-danger);
-  border-color: var(--color-danger-soft)
+  color: var(--color-danger);
+  background: var(--color-danger-soft);
+  border-color: var(--color-danger-border);
 }
 
 .feedback-action {
@@ -385,14 +385,14 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 
-  cursor: pinter;
+  cursor: pointer;
 }
 
 .feedback-action:hover {
   text-decoration-thickness: 2px;
 }
 
-.feedback-actions:focus-visible {
+.feedback-action:focus-visible {
   outline: 3px solid rgba(220, 38, 38, 0.18);
   outline-offset: 3px;
   border-radius: 4px;
