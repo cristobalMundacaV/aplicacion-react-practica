@@ -20,6 +20,10 @@
     --color-danger-soft: #fef2f2;
     --color-danger-border: #fecaca;
 
+    --color-success: #15803d;
+    --color-success-soft: #f0fdf4;
+    --color-success-border: #bbf7d0;
+
     --radius-small: 8px;
     --radius-medium: 14px;
     --radius-large: 20px;

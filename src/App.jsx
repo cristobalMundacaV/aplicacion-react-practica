@@ -1,19 +1,46 @@
 import { useState } from 'react'
 import './App.css'
-import { Save, Wallet } from 'lucide-react'
+import { Save, Wallet, LoaderCircle, CircleCheck } from 'lucide-react'
 
 function App() {
   const [price, setPrice] = useState('')
   const [priceTouched, setPriceTouched] = useState(false)
+  const [saveStatus, setSaveStatus] = useState('idle')
   const isPriceInvalid = price === '' || Number(price) <= 0
   const showPriceError = priceTouched && isPriceInvalid
-  const handleSave = () => {
+  const isSaving = saveStatus === 'loading'
+  const saveSucceded = saveStatus === 'success'
+  const saveFailed = saveStatus === 'error'
+  const handlePriceChange = (event) => {
+    setPrice(event.target.value)
+
+    if (saveStatus !== 'idle') {
+      setSaveStatus('idle')
+    }
+  }
+
+  const handleSave = async () => {
     setPriceTouched(true)
 
-    if (isPriceInvalid) {
+    if (isPriceInvalid || isSaving) {
       return
     }
+
+    setSaveStatus('loading')
+
+    await new Promise((resolve) => {
+      setTimeout(resolve, 1200)
+    })
+
+    setSaveStatus('success')
+
     console.log('Precio válido:', price)
+  }
+
+  const handleCancel = () => {
+    setPrice('')
+    setPriceTouched(false)
+    setSaveStatus('idle')
   }
 
   return (
@@ -75,7 +102,7 @@ function App() {
                     step='1'
                     placeholder='0'
                     value={price}
-                    onChange={(event) => setPrice(event.target.value)}
+                    onChange={handlePriceChange}
                     aria-invalid={showPriceError}
                     aria-describedby={
                       showPriceError
@@ -103,15 +130,47 @@ function App() {
               </div>
             </div>
             <div className='card-actions'>
-              <button className='secondary-button' type='button'>
+              <button
+                className='secondary-button'
+                type='button'
+                onClick={handleCancel}
+                disabled={isSaving}
+              >
                 Cancelar
               </button>
 
               <button className='primary-button' type='button' onClick={handleSave}>
-                <Save size={17} />
-                Guardar precio
+                {isSaving ? (
+                  <>
+                    <LoaderCircle
+                      className='button-spinner'
+                      size={17}
+                    />
+                    Guardando...
+                  </>
+                ) : (
+                  <>
+                    <Save size={17} />
+                    Guardar precio
+                  </>
+                )}
               </button>
             </div>
+            {saveSucceded && (
+              <div
+                className='save-feedback success-feedback'
+                role='status'
+              >
+                <CircleCheck size={18} />
+                <div>
+                  <strong>Precio guardado</strong>
+                  <p>
+                    El nuevo precio exclusivo es ${price}
+                  </p>
+                </div>
+              </div>
+            )}
+
           </section>
         </div>
       </section>

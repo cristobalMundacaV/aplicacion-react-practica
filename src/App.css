@@ -131,7 +131,17 @@
 
 .primary-button:disabled {
   opacity: 0.55;
-  cursor: not-allowed;
+  cursor: wait;
+  transform: none;
+  box-shadow: none;
+}
+
+.primary-button:disabled:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: none;
+  box-shadow: none;
+
 }
 
 .card-content {
@@ -300,4 +310,56 @@
   font-size: 13px;
   font-weight: 600;
   line-height: 1.45;
+}
+
+.button-spinner {
+  animation: button-spin 800ms linear infinite;
+}
+
+@keyframes button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.save-feedback {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  width: 100%;
+  padding: 12px 14px;
+
+  border: 1px solid;
+  border-radius: var(--radius-medium);
+}
+
+.success-feedback {
+  color: var(--color-success);
+  background-color: var(--color-success-soft);
+  border-color: var(--color-success-border);
+}
+
+.save-feedback svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.save-feedback div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.save-feedback strong {
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.card .save-feedback p {
+  margin: 0;
+
+  color: inherit;
+  font-size: 13px;
+  line-height: 1.4;
 }
