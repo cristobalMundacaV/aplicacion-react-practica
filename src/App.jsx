@@ -9,7 +9,7 @@ function App() {
   const isPriceInvalid = price === '' || Number(price) <= 0
   const showPriceError = priceTouched && isPriceInvalid
   const isSaving = saveStatus === 'loading'
-  const saveSucceded = saveStatus === 'success'
+  const saveSucceeded = saveStatus === 'success'
   const saveFailed = saveStatus === 'error'
   const handlePriceChange = (event) => {
     setPrice(event.target.value)
@@ -139,7 +139,12 @@ function App() {
                 Cancelar
               </button>
 
-              <button className='primary-button' type='button' onClick={handleSave}>
+              <button
+                className='primary-button'
+                type='button'
+                onClick={handleSave}
+                disabled={isSaving}
+              >
                 {isSaving ? (
                   <>
                     <LoaderCircle
@@ -156,7 +161,7 @@ function App() {
                 )}
               </button>
             </div>
-            {saveSucceded && (
+            {saveSucceeded && (
               <div
                 className='save-feedback success-feedback'
                 role='status'
