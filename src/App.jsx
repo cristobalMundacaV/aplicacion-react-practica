@@ -6,6 +6,10 @@ function App() {
   const [price, setPrice] = useState('')
   const [priceTouched, setPriceTouched] = useState(false)
   const [saveStatus, setSaveStatus] = useState('idle')
+  const [reason, setReason] = useState('')
+  const [reasonTouched, setReasonTouched] = useState(false)
+  const isReasonValid = reason.trim() === '' || reason.trim().length < 10
+  const showReasonError = reasonTouched && isReasonValid
   const isPriceInvalid = price === '' || Number(price) <= 0
   const showPriceError = priceTouched && isPriceInvalid
   const isSaving = saveStatus === 'loading'
@@ -101,7 +105,6 @@ function App() {
 
                 <div className='price-input'>
                   <span aria-hidden="true">$</span>
-
                   <input
                     id='exlusive-price'
                     type='number'
@@ -136,6 +139,33 @@ function App() {
                   </p>
                 )}
               </div>
+
+
+              <div className={`form-field ${showReasonError ? 'has-error' : ''}`}>
+                <label htmlFor='special-price-reason'>
+                  Motivo del precio especial
+                </label>
+                <textarea
+                  id="special-price-reason"
+                  className='reason-textarea'
+                  value={reason}
+                  onChange={(event) => setReason(event.target.value)}
+                  onBlur={() => setReasonTouched(true)}
+                  placeholder='Ejemplo: precio acordado por compras frecuentes'
+                  rows={4}
+                />
+                {showReasonError ? (
+                  <p className='field-error'>
+                    El motivo debe tener al menos 10 caracteres
+                  </p>
+                ) : (
+                  <p className='field-error'>
+                    El motivo debe tener al menos 10 caracteres
+                  </p>
+                )
+                }
+              </div>
+
             </div>
             <div className='card-actions'>
               <button
